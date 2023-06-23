@@ -1,0 +1,77 @@
+static List <string> carros= new List <string>();
+
+    public static void Main(string[] args)
+    {
+        string placa;
+
+  
+        Console.WriteLine("\nBem vindo ao Estacione & Cia!");
+        Console.WriteLine("Escolha uma das opcoes abaixo");
+        Console.WriteLine("1-Estacionar");
+        Console.WriteLine("2-Retirar");
+        Console.WriteLine("3-Listar");
+        
+       string opcao=Console.ReadLine();
+        
+             if(opcao== "1")
+            {
+               if(carros.Count == 5)
+                {
+                  Console.WriteLine("Nao ha vagas"); 
+                  Main(null);
+                  return;
+                }
+            
+                    Console.WriteLine("Qual a placa do veiculo?");
+                    placa=(Console.ReadLine());
+                    
+               if(placa.Length != 6)
+                  
+               {
+                Console.WriteLine("Placa invalida");
+                Main(null);
+                return;
+               }
+               
+               
+               placa=placa.ToUpper();
+               carros.Add(placa);
+               Console.WriteLine("Veiculo adicionado com sucesso!");
+               Main(null);
+               return;
+            }
+             
+              if(opcao == "2")
+                {
+                  Console.WriteLine("Digite a placa de algum veiculo de dentro do estacionmento");
+                    placa=(Console.ReadLine());
+                    placa=placa.ToUpper();
+                    
+                   if(carros.Contains(placa))
+                  {
+                   carros.Remove(placa);
+                   Console.WriteLine("Esse veiculo foi retirado.");
+                   Main(null);
+                   return;
+                  }
+               
+                    else
+                   {
+                    Console.WriteLine("Essa placa nao existe");
+                   }
+                  
+                } 
+              
+              if(opcao == "3")
+              {
+                  int contador= 0;
+                  while(contador < carros.Count)
+                  {
+                  
+                  
+                  Console.WriteLine($"[{carros[contador]}]");
+                  contador=contador+1;
+                  
+                  } 
+                  Main(null);
+         }         return;
